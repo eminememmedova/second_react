@@ -1,82 +1,46 @@
-
-import "./App.css";
-// import Navbar from "./components/Navbar";
-// import Welcome from "./components/Welcome";
-// import Footer from "./components/Footer";
-import Form from "./components/Form";
-import Box from "./components/Box";
-
-
-function App() {
-
-return(
-  <div>
-    <Form/>
-    <Box/>
-  </div>
-)
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import data from './data'
+function createData(name,surname, age) {
+  return { name,surname, age };
 }
 
-export default App
 
-
-// function App() {
-//   let USERS = [
-//     {
-//       id: 1,
-//       name: "Emine",
-//       age: 20,
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU",
-//       hobbies: ["drawing", "music"],
-//     },
-//     {
-//       id: 2,
-//       name: "Hello",
-//       age: 22,
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU",
-//       hobbies: ["football", "music"],
-//     },
-//   ];
-//   return (
-//     <>
-//       <Navbar />
-//       {USERS.map((user) => {
-//         return (
-//           <Welcome
-//             key={user.id}
-//             name={user.name}
-//             age={user.age}
-//             img={user.img}
-//           />
-//         );
-//       })}
-//       <Footer />
-//     </>
-//   );
-// }
-
-// export default App;
-
-// import './App.css';
-
-// const App =()=>{
-//   const[color,setColor] =useState("");
-//   function blue() {
-//       setColor("blue");
-//   }
-//   function violet() {
-//       setColor("violet");
-
-//   }
-
-//   return (
-//     <>
-//      <div style = {{height:200,width:200, background:color}}></div>
-//      <button onClick={()=>blue()}>blue</button>
-//      <button onClick={()=>violet()}>violet</button>
-//     </>
-
-//   );
-// }
-
-// export default App;
+export default function BasicTable() {
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">surname</TableCell>
+            <TableCell align="right">Age&nbsp;(g)</TableCell>
+     
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((d) => (
+            <TableRow
+              key={d.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {d.name}
+              </TableCell>
+        
+              <TableCell align="right">{d.surname}</TableCell>
+              <TableCell align="right">{d.age}</TableCell>
+           
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}

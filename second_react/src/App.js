@@ -1,31 +1,57 @@
-import React, {useState } from "react";
-import Button from "@mui/material/Button";
+import React from "react";
+import Child from "./components/Child.jsx"
 
-const App = () => {
-  const [count, setCount] = useState(0);
-  const incrementCount = setInterval(() => {
-    setCount(count + 1);
-  }, 1000);
-  // useEffect(() => {
-    
-  // });
-
-  return (
-    <>
-      <div>Timer:{count}s</div>
-      <h1>Stop watch...</h1>
-      <Button variant="contained" color="success" onClick={()=>this.incrementCount()}>
-        START
-      </Button>
-      <Button variant="outlined" color="error">
-        STOP
-      </Button>
-      <Button color="secondary">RESET</Button>
-    </>
-  );
-};
+const App = ()=> (
+ <>
+ <Child/>
+ </>
+);
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, {useState } from "react";
+// import Button from "@mui/material/Button";
+
+// const App = () => {
+//   const [count, setCount] = useState(0);
+//   const incrementCount = setInterval(() => {
+//     setCount(count + 1);
+//   }, 1000);
+//   // useEffect(() => {
+    
+//   // });
+
+//   return (
+//     <>
+//       <div>Timer:{count}s</div>
+//       <h1>Stop watch...</h1>
+//       <Button variant="contained" color="success" onClick={()=>this.incrementCount()}>
+//         START
+//       </Button>
+//       <Button variant="outlined" color="error">
+//         STOP
+//       </Button>
+//       <Button color="secondary">RESET</Button>
+//     </>
+//   );
+// };
+
+// export default App;
 
 // import React, {useRef} from 'react';
 
